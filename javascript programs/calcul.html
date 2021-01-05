@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+       
+        
+
+       
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="form-group col" style="margin-top: 30px;">
+                <input type="text" class="form-control" id="textbox">
+                <input type="button" value="C" onclick="clearbox()" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px; margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="<" onclick="textbox('<')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px; margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="/"onclick="textbox('/')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px; margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="" onclick="textbox('')"style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px; margin-right: 5px;" class="btn btn-primary">
+            </div>
+            <div class="col-4"></div>
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="form-group col" style="margin-top: 10px;">   
+             <input type="button" value="7" onclick="textbox('7')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="8" onclick="textbox('8')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px; margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="9" onclick="textbox('9')"style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="+" onclick="textbox('+')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+            </div>
+            <div class="col-4"></div>
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="form-group col" style="margin-top: 10px;">   
+             <input type="button" value="6" onclick="textbox('6')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="5"onclick="textbox('5')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="4" onclick="textbox('4')"style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="=" onclick="calculation()" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+            </div>
+            <div class="col-4"></div>
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="form-group col" style="margin-top: 10px;">   
+             <input type="button" value="3" onclick="textbox('3')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="2"onclick="textbox('2')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="1" onclick="textbox('1')" style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+                <input type="button" value="0"  onclick="textbox('0')"style="background-color: rgb(74, 74, 100); margin-top: 10px; width: 80px; height: 40px;  margin-right: 5px;" class="btn btn-primary">
+            </div>
+            <div class="col-4"></div>
+
+        </div>
+    </div>
+
+    
+</body>
+
+<script src="testcal.js"></script>
+
+</html>
