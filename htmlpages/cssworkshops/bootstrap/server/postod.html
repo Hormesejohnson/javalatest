@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    <input id="pid" type="text" placeholder=postid><br><br>
+    <button type="submit" onclick="getvalues()" class="btn btn-primary">submit</button>
+
+
+<script>
+var url=""
+
+     var xhr= new XMLHttpRequest();
+     
+
+    // open() we have to two params
+    // ?method get
+    // api/url to connect https://jsonplaceholder.typicode.com/users
+    // xhr.open("get","https://jsonplaceholder.typicode.com/users")
+    function getvalues() {
+     
+var pid=document.querySelector("#pid").value
+url="https://jsonplaceholder.typicode.com/posts/"+pid
+createpost(url)
+        
+     
+
+
+    }
+
+    function createpost(url){
+        alert(url)
+        xhr.open("get",url)
+        xhr.send()
+    
+    }
+   
+
+// xhr.send()
+ xhr.onreadystatechange=()=>{
+ if(xhr.readyState==4){
+ if((xhr.status>=200)&(xhr.status<300) ){
+console.log("sucess")
+alert("your post created")
+console.log(xhr.status)
+alert(xhr.responseText)
+var pos=JSON.parse(xhr.responseText)
+alert(pos)
+}
+else{
+console.log(xhr.status)
+}
+console.log("task complete")
+}
+} 
+</script>
+
+<div>
+   
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">userid</th>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      
+    </tr>
+  </thead>
+  </table>
+ 
+  </div>
+
+
+
+
+</body>
+
+
+</html>

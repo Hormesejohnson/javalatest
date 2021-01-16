@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>posts</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">CREATE YOUR POST</div> 
+                    <div class="col-4"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <LAbel>Title</LAbel>
+                        <input type="text" class="form-control" id="tit">
+
+                        <LAbel>Body</LAbel>
+                        <input type="text" class="form-control" id="bdy">
+
+                        <LAbel>Userid</LAbel>
+                        <input type="text" class="form-control" id="uid">
+
+                        <button type="button" onclick="createPost()" class="btn btn-success form-control">CreatePost</button>
+                    </div> 
+                    <div class="col-4"></div>
+                </div>
+                
+            </div>
+            
+
+        </body>
+        <script>
+            
+
+            function createPost()
+            {
+                var title=document.querySelector("#tit").value
+                var body=document.querySelector("#bdy").value
+                var uid=document.querySelector("#uid").value
+                console.log(title,body,uid)
+            
+            
+
+            var newpost={
+                title: title,
+                body : body,
+                userId : uid,
+            }
+            sendData(newpost)
+            
+            }
+
+
+
+
+            const xhr=new XMLHttpRequest();
+
+            xhr.open("post","https://jsonplaceholder.typicode.com/posts")
+            function sendData(newpost) {
+                xhr.send(newpost)
+
+            }
+
+            
+            xhr.onreadystatechange=()=>{
+                if(xhr.readyState==4){
+                if((xhr.status>=200) & (xhr.status<300)) {
+                    console.log("success")
+                    console.log(xhr.status)
+                    alert(xhr.responseText)
+                }
+                else{
+                    console.log(xhr.status)
+
+                }
+                console.log("task completed")
+            }
+            }
+
+
+
+
+
+
+
+
+        </script>
+    
+</html>

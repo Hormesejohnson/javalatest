@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>website</title>
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <h1>my deatails</h1>
+        <div id="mar">
+        <input id="title" type="text" placeholder="title"><br><br>
+        <input  id="body" type="text" placeholder=body><br><br>
+        <input  id="uid"  type="text" placeholder=uid><br><br>
+        <button type="submit" onclick="createpost()" class="btn btn-primary">submit</button>
+  
+
+        <style>
+            #mar{
+                margin-left: 500px;
+                margin-top: 50px;
+                 }
+            h1{
+                text-align: center;
+            }
+        </style>
+        <script>
+            function createpost(){
+                var titl=document.querySelector("#title").value
+                var bod=document.querySelector("#body").value
+                var ui=document.querySelector("#uid").value
+                
+            
+            var newpost={
+                tit:titl,
+                body:bod,
+                uid:ui      
+                }
+         
+                sendData(newpost)
+            } 
+            function sendData(newpost){
+            xhr.send(newpost) 
+            }  
+        
+
+        var xhr=new XMLHttpRequest();
+        xhr.open("post","https://jsonplaceholder.typicode.com/posts")
+    
+            
+  
+        xhr.onreadystatechange=()=>{
+            if (xhr.readyState==4){
+                if((xhr.status>=200)&(xhr.status<300)){
+                    console.log("success")
+                    console.log(xhr.status)
+                    alert(xhr.responseText)
+
+                }
+                else{
+                    console.log(xhr.status)
+
+
+                }
+                console.loog("task complete")
+            }
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="tit" placeholder="title"><br><br>
+    <input id="boy" type="text" placeholder=body><br><br>
+    <input id="uid" type="text" placeholder=uid><br><br>
+    <button type="submit" onclick="getvalues()" class="btn btn-primary">submit</button>
+
+</body>
+<script>
+
+
+     var xhr= new XMLHttpRequest();
+     xhr.open("post","https://jsonplaceholder.typicode.com/posts")
+
+    // open() we have to two params
+    // ?method get
+    // api/url to connect https://jsonplaceholder.typicode.com/users
+    // xhr.open("get","https://jsonplaceholder.typicode.com/users")
+    function getvalues() {
+
+        var titl = document.querySelector("#tit").value
+        var bod = document.querySelector("#boy").value
+        var ui = document.querySelector("#uid").value
+        //console.log(titl+bod+ui)
+        //alert(titl)
+        //alert(bod)
+        //alert(ui)
+        var post = {
+            title: titl,
+            body: bod,
+            userId: ui,
+        }
+      
+        createpost(post)
+            
+        
+
+
+    }
+    function createpost(data){
+        xhr.send(data)
+    
+    }
+   
+
+// xhr.send()
+ xhr.onreadystatechange=()=>{
+ if(xhr.readyState==4){
+ if((xhr.status>=200)&(xhr.status<300) ){
+console.log("sucess")
+alert("your post created")
+console.log(xhr.status)
+alert(xhr.responseText)
+}
+else{
+console.log(xhr.status)
+}
+console.log("task complete")
+}
+} 
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

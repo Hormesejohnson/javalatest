@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>server</title>
+    </head>
+    <body>
+        <script>
+        var xhr=new XMLHttpRequest()
+        
+    
+      xhr.open("get","https://jsonplaceholder.typicode.com/posts")
+
+     xhr.send()
+     
+
+      xhr.onreadystatechange=()=>{
+ if(xhr.readyState==4){
+ if((xhr.status>=200)&(xhr.status<300) ){
+console.log("sucess")
+console.log(xhr.status)
+alert(xhr.responseText)
+}
+else{
+console.log(xhr.status)
+}
+console.log("task complete")
+}
+} 
+
+     
+
+        </script>
+    </body>
+</html>

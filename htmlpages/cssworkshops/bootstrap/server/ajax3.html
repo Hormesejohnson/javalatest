@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1> create your post</h1>
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-4"></div>
+            <div class="col-4">
+
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="tit">
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">body</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="bdy">
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">userid</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="uid">
+                    </div>
+                </div>
+
+                <div style="margin-left: 35%;">
+                    <button class="btn btn-primary" onclick="createPost()" type="button">crate post</button>
+                </div>
+
+
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+
+    function createPost() {
+        var tit = document.querySelector("#tit").value;
+        var bdy = document.querySelector("#bdy").value;
+        var uid = document.querySelector("#uid").value;
+       // console.log(title, body, userid)
+
+        var newpost = {
+            title: tit,
+            body: bdy,
+            userId: uid,
+        }
+        sendata(newpost)
+    }
+       
+
+
+    
+
+
+
+    var xhr = new XMLHttpRequest(); //are used to interact with servers.ou can retrieve data from a URL 
+
+    //open() we have to 2 parameters// conn establish
+    //method - get
+    //api/url to connect -https://jsonplaceholder.typicode.com/posts
+    var url = "https://jsonplaceholder.typicode.com/posts"
+    //url=url+"/2"
+    // var data = {
+
+    //     title: 'foo',
+    //     body: 'bar',
+    //     userId: 1
+    // }
+    //post = JSON.stringify(data)//converts into json format
+    xhr.open("post", url)
+function sendata(newpost){
+
+   
+xhr.send(newpost)
+    
+}  
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+            if ((xhr.status >= 200) & (xhr.status < 300)) {
+                alert("your post created")
+                console.log("success")
+                console.log(xhr.status)
+                alert(xhr.responseText)//fetch data
+            }
+            else {
+                console.log(xhr.status)
+
+            }
+            console.log("task complete")
+        }
+    }
+
+</script>
+
+</html>
